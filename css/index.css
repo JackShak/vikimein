@@ -1,0 +1,42 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: kamerik-3d;
+    src: url(../fonts/kamerik205-heavy.woff2);
+    font-weight: 900;
+}
+
+@font-face {
+    font-family: merriwheather-3d;
+    src: url(../fonts/merriweather-regular-italic.woff2);
+}
+header {
+    background-color: black;
+    color: white;
+    font-family: kamerik-3d;
+}
+.logo {
+    position: absolute;
+}
+.layers {
+    perspective: 1000px;
+    overflow: hidden;
+}
+.layers_container{
+    height: 100vh;
+    min-height: 500px;
+    transform-style: preserve-3d;
+    will-change: transform;
+}
+.layers_item {
+    position: absolute;
+    inset: -5vw;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+}
