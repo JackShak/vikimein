@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+:root{
+    --index: calc(1vw + 1vh);
+}
+
 @font-face {
     font-family: kamerik-3d;
     src: url(../fonts/kamerik205-heavy.woff2);
@@ -20,7 +24,14 @@ header {
     font-family: kamerik-3d;
 }
 .logo {
+    --logo-size: calc(var(--index) * 7.8);
+    width: var(--logo-size);
+    height: var(--logo-size);
     position: absolute;
+    background-repeat: no-repeat;
+    top: calc(var(--index) * 2.8);
+    left: calc(50% - calc(var(--logo-size) / 2));
+    z-index: 1;
 }
 .layers {
     perspective: 1000px;
@@ -31,6 +42,8 @@ header {
     min-height: 500px;
     transform-style: preserve-3d;
     will-change: transform;
+    transform: rotateX(var(--move-x)) rotateY(var(--move-y));
+
 }
 .layers_item {
     position: absolute;
@@ -39,4 +52,23 @@ header {
     background-position: center;
     display: flex;
     justify-content: center;
+    align-items: center;
+}
+.layers-1{
+    transform: translateZ(-55px) scale(1.06);
+}
+.layers-2{
+    transform: translateZ(80px) scale(0.88);
+}
+.layers-3{
+    transform: translateZ(180px) scale(0.8);
+}
+.layers-4{
+    transform: translateZ(190px) scale(0.8);
+}
+.layers-5{
+    transform: translateZ(300px) scale(0.9);
+}
+.layers-6{
+    transform: translateZ(380px);
 }
