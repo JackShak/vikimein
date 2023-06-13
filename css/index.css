@@ -6,6 +6,8 @@
 
 :root{
     --index: calc(1vw + 1vh);
+    transition: 1.5s cubic-bezier(0.05, 0.5, 0, 1);
+    --window-width: calc(1vw);
 }
 
 @font-face {
@@ -42,8 +44,8 @@ header {
     min-height: 500px;
     transform-style: preserve-3d;
     will-change: transform;
-    transform: rotateX(var(--move-x)) rotateY(var(--move-y));
-
+    transform: rotateX(var(--move-y)) rotateY(var(--move-x));
+    transition: transform var(--transition);
 }
 .layers_item {
     position: absolute;
@@ -64,11 +66,65 @@ header {
     transform: translateZ(180px) scale(0.8);
 }
 .layers-4{
-    transform: translateZ(190px) scale(0.8);
+    transform: translateZ(190px) scale(1.3);
 }
 .layers-5{
     transform: translateZ(300px) scale(0.9);
 }
 .layers-6{
     transform: translateZ(380px);
+}
+
+.main-text{
+    font-size: calc(var(--index) * 2.9);
+    text-align: center;
+    text-transform: uppercase;
+    margin-top: calc(var(--index) * 5.5);
+    letter-spacing: calc(var(--index)*-0.15);
+    line-height: 1.1em;
+}
+
+.main-text span{
+    display: block;
+}
+
+.text-p{
+    text-transform: none;
+    font-family: merriwheather-3d;
+    font-size: calc(var(--index) * 2);
+}
+#navbar{
+    box-sizing: content-box;
+    height: 0;
+    border-bottom: 100px solid rgba(1, 1, 1, 0.4);
+    color: black;
+    margin-top: -53px;
+    width: 1400px;
+    padding-left: 700px;
+    transform: rotateX(180deg);
+    padding-left: calc(var(--window-width) * 40);
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    display: flex;
+    overflow: hidden;
+    justify-content: center;
+}
+
+nav a {
+    float: left;
+    color: white;
+    text-align: center;
+    padding: 15px 25px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: calc(var(--index) * 0.5);
+    transform: rotateX(180deg);
+}
+nav a:hover{
+    background: rgb(0, 179, 255, 0.5);
+    color: black;
+    border-radius: 5px;
 }
