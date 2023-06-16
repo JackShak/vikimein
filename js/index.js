@@ -6,3 +6,33 @@ document.addEventListener("mousemove",e =>{
         `
     })
 })
+
+let gallery_button_right = document.getElementsByClassName("gallery_button_right")[0]
+let gallery_button_left = document.getElementsByClassName("gallery_button_left")[0]
+let gallery_cards = document.getElementsByClassName("gallery_cards")[0]
+
+let cards_images = [
+    'images\\png\\png-transparent-minecraft-pocket-edition-xbox-360-pig-video-game-pig-angle-animals-wood.png',
+    'images\\png\\png-transparent-minecraft-story-mode-season-two-xbox-360-villagers-angle-furniture-video-game.png',
+    'images\\png\\png-transparent-minecraft-mob-video-game-boss-salmon-salmon-angle-super-mario-bros-boss.png',
+    'images\\png\\png-clipart-minecraft-story-mode-youtube-bill-cipher-undertale-mine-craft-bill-cipher-fictional-character.png',
+    'images\\png\\1645963621_15-kartinkin-net-p-kartinki-zombi-iz-mainkrafta-15.png',
+    'images\\png\\2435495-middle.png',
+    'images\\png\\99-990990_tropical-fish-minecraft-png-png-download-puffer-fish.png',
+]
+for (let i=0; i<3; i++){
+    add_card(cards_images[i])
+    console.log(cards_images[i])
+} 
+console.log(gallery_cards)
+
+function add_card(image){
+    let new_card = document.createElement('img')
+    new_card.scr=image
+    new_card.classList.add('gallery_card_pic')
+    gallery_cards.append(new_card)
+}
+
+gallery_button_right.addEventListener('click', event => {
+
+})

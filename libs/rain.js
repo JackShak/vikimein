@@ -44,7 +44,7 @@ for (let i = 0; i < 140; i++) {
 	let rainYLocation = Math.random() * -500;
 	let randomRainHeight = randomNum(10, 2);
 	let randomSpeed = randomNum(20, .2);
-	let randomOpacity = Math.random() * .55;
+	let randomOpacity = Math.random() * 1;
 	rainArray.push(new RainDrops(rainXLocation, rainYLocation, randomRainHeight, randomSpeed, randomOpacity));
 }
 

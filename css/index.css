@@ -6,7 +6,7 @@
 
 :root{
     --index: calc(1vw + 1vh);
-    transition: 1.5s cubic-bezier(0.05, 0.5, 0, 1);
+    --transition: 1.5s cubic-bezier(0.05, 0.5, 0, 1);
     --window-width: calc(1vw);
 }
 
@@ -57,10 +57,10 @@ header {
     align-items: center;
 }
 .layers-1{
-    transform: translateZ(-55px) scale(1.06);
+    transform: translateZ(-55px) scale(1.1);
 }
 .layers-2{
-    transform: translateZ(80px) scale(0.88);
+    transform: translateZ(80px) scale(0.95);
 }
 .layers-3{
     transform: translateZ(180px) scale(0.8);
@@ -117,7 +117,7 @@ nav a {
     float: left;
     color: white;
     text-align: center;
-    padding: 15px 25px;
+    padding: 15px 20px;
     text-decoration: none;
     text-transform: uppercase;
     font-size: calc(var(--index) * 0.5);
@@ -127,4 +127,70 @@ nav a:hover{
     background: rgb(0, 179, 255, 0.5);
     color: black;
     border-radius: 5px;
+}
+
+body{
+    background: linear-gradient(rgb(0, 179, 255, 0.5), rgba(0, 255, 166, 0.5), rgba(201, 255, 173, 0.5));
+}
+
+.about-minecraft{
+    width: 80%;
+    margin-left: 10%;
+    font-size: calc(var(--index) * 0.8);
+    text-align: center;
+    margin-top: calc(var(--index) * 2);
+    letter-spacing: calc(var(--index)*-0.07);
+}
+
+.gallery{
+    --gallery-margin: calc(var(--index) * 6);
+    margin: var(--gallery-margin) 0 var(--gallery-margin) 2.5%;
+    background-color: rgba(11, 151, 104, 0.3);
+    border-radius: 15px;
+    width: 95%;
+}
+.gallery_caption {
+    text-align: center;
+    font-family: merriwheather-3d;
+    font-size: calc(var(--index) * 2);
+    text-transform: uppercase;
+    padding-top: calc(var(--index) * 1.75);
+    padding-bottom: var(--index);
+}
+
+.gallery_conteiner{
+    position: relative;
+    height: 340px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.gallery_button{
+    position: relative;
+    width: 3%;
+    height: 80%;
+    background-color: rgb(21, 173, 123, 0.6);
+    border-radius: 15px;
+    outline: none;
+    border: none;
+}
+.gallery_button:hover{
+    background-color:rgba(4, 128, 86, 0.9);
+    cursor: pointer;
+}
+.gallery_card_pic{
+    width: 280px;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 10%;
+    border: 2px solid black;
+}
+.gallery_card_pic:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+}
+.gallery_cards{
+    width: 90%;
+    justify-content: space-evenly;
+    display: flex;
 }
