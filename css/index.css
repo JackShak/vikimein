@@ -167,7 +167,7 @@ body{
 }
 .gallery_button{
     position: relative;
-    width: 3%;
+    width: 5%;
     height: 80%;
     background-color: rgb(21, 173, 123, 0.6);
     border-radius: 15px;
@@ -193,4 +193,10 @@ body{
     width: 90%;
     justify-content: space-evenly;
     display: flex;
+}
+.gallery_button img {
+    width: 50%;
+}
+.gallery_button_left img {
+    transform: rotateZ(180deg);
 }
