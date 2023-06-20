@@ -1,0 +1,230 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --index: calc(1vw + 1vh);
+    --transition: 1.5s cubic-bezier(0.05, 0.5, 0, 1);
+    --window-width: calc(1vw);
+}
+
+@font-face {
+    font-family: kamerik-3d;
+    src: url(../fonts/kamerik205-heavy.woff2);
+    font-weight: 900;
+}
+
+@font-face {
+    font-family: merriwheather-3d;
+    src: url(../fonts/merriweather-regular-italic.woff2);
+}
+header {
+    background-color: black;
+    color: white;
+    font-family: kamerik-3d;
+}
+.logo {
+    --logo-size: calc(var(--index) * 7.8);
+    width: var(--logo-size);
+    height: var(--logo-size);
+    position: absolute;
+    background-repeat: no-repeat;
+    top: calc(var(--index) * 2.8);
+    left: calc(50% - calc(var(--logo-size) / 2));
+    z-index: 1;
+}
+.layers {
+    perspective: 1000px;
+    overflow: hidden;
+}
+.layers_container{
+    height: 100vh;
+    min-height: 500px;
+    transform-style: preserve-3d;
+    will-change: transform;
+    transform: rotateX(var(--move-y)) rotateY(var(--move-x));
+    transition: transform var(--transition);
+}
+.layers_item {
+    position: absolute;
+    inset: -5vw;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.layers-1{
+    transform: translateZ(-55px) scale(1.1);
+}
+.layers-2{
+    transform: translateZ(80px) scale(0.95);
+}
+.layers-3{
+    transform: translateZ(180px) scale(0.8);
+}
+.layers-4{
+    transform: translateZ(190px) scale(1.3);
+}
+.layers-5{
+    transform: translateZ(300px) scale(0.9);
+}
+.layers-6{
+    transform: translateZ(380px);
+}
+
+.main-text{
+    font-size: calc(var(--index) * 2.9);
+    text-align: center;
+    text-transform: uppercase;
+    margin-top: calc(var(--index) * 5.5);
+    letter-spacing: calc(var(--index)*-0.15);
+    line-height: 1.1em;
+}
+
+.main-text span{
+    display: block;
+}
+
+.text-p{
+    text-transform: none;
+    font-family: merriwheather-3d;
+    font-size: calc(var(--index) * 2);
+}
+#navbar{
+    box-sizing: content-box;
+    height: 0;
+    border-bottom: 100px solid rgba(1, 1, 1, 0.4);
+    color: black;
+    margin-top: -53px;
+    width: 1400px;
+    padding-left: 700px;
+    transform: rotateX(180deg);
+    padding-left: calc(var(--window-width) * 40);
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    display: flex;
+    overflow: hidden;
+    justify-content: center;
+}
+
+nav a {
+    float: left;
+    color: white;
+    text-align: center;
+    padding: 15px 20px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: calc(var(--index) * 0.5);
+    transform: rotateX(180deg);
+}
+nav a:hover{
+    background: rgb(0, 179, 255, 0.5);
+    color: black;
+    border-radius: 5px;
+}
+
+body{
+    background: linear-gradient(rgb(0, 179, 255, 0.5), rgba(0, 255, 166, 0.5), rgba(201, 255, 173, 0.5));
+}
+
+.about-minecraft{
+    width: 80%;
+    margin-left: 10%;
+    font-size: calc(var(--index) * 0.8);
+    text-align: center;
+    margin-top: calc(var(--index) * 2);
+    letter-spacing: calc(var(--index)*-0.07);
+}
+
+.gallery{
+    --gallery-margin: calc(var(--index) * 6);
+    margin: var(--gallery-margin) 0 var(--gallery-margin) 2.5%;
+    background-color: rgba(11, 151, 104, 0.3);
+    border-radius: 15px;
+    width: 95%;
+}
+.gallery_caption {
+    text-align: center;
+    font-family: merriwheather-3d;
+    font-size: calc(var(--index) * 2);
+    text-transform: uppercase;
+    padding-top: calc(var(--index) * 1.75);
+    padding-bottom: var(--index);
+}
+
+.gallery_conteiner{
+    position: relative;
+    height: 340px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.gallery_button{
+    position: relative;
+    width: 5%;
+    height: 80%;
+    background-color: rgb(21, 173, 123, 0.6);
+    border-radius: 15px;
+    outline: none;
+    border: none;
+}
+.gallery_button:hover{
+    background-color:rgba(4, 128, 86, 0.9);
+    cursor: pointer;
+}
+.gallery_card_pic{
+    width: 280px;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 10%;
+    border: 2px solid black;
+}
+.gallery_card_pic:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+}
+.gallery_cards{
+    width: 90%;
+    justify-content: space-evenly;
+    display: flex;
+}
+.gallery_button img {
+    width: 50%;
+}
+.gallery_button_left img {
+    transform: rotateZ(180deg);
+}
+footer {
+    overflow: hidden;
+    z-index: 1;
+    display: grid;
+    position: relative;
+    height: (var(--index) * 15);
+    background: #00000000;
+}
+
+#bubbles {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: calc(var(--index) * 10);
+    margin-top: calc(var(--index) * 5);
+}
+
+.bubble {
+    z-index: 0;
+    position: absolute;
+    left: var(--left);
+    background: var(--footer-background);
+    border-radius: 100%;
+    -webkit-animation: bubble-size var(--time, 4s) ease-in infinite var(--delay, 0s), bubble-move var(--time, 4s) ease-in infinite var(--delay, 0s);
+            animation: bubble-size var(--time, 4s) ease-in infinite var(--delay, 0s), bubble-move var(--time, 4s) ease-in infinite var(--delay, 0s);
+    transform: translate(-50%, 100%);
+}
