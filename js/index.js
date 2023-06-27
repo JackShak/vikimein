@@ -39,6 +39,7 @@ let cards_images = [
         "png\\png-transparent-minecraft-mob-video-game-boss-salmon-salmon-angle-super-mario-bros-boss.png",
         "Тупейший карп",
         "Боже у него нет мозга",
+        "test.html",
     ),
     new Image(
         "png\\png-transparent-minecraft-pocket-edition-xbox-360-pig-video-game-pig-angle-animals-wood.png",
@@ -58,6 +59,9 @@ function add_card(image, side){
         <img src="${image.url}" class="gallery__card__pic">
         <h1 class="gallery__card__caption">${image.caption}</h1>
         <h3 class="gallery__card__description">${image.description}</h3>
+        <a href="${image.href}">
+            <div class="gallery__card__href"></div>
+        </a>
     `
     
     new_card.classList.add("gallery__card")
