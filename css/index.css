@@ -2,12 +2,14 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 :root{
     --index: calc(1vw + 1vh);
     --transition: 1.5s cubic-bezier(0.05, 0.5, 0, 1);
     --window-width: calc(1vw);
+    --footer-background: rgb(48, 202, 148);
 }
 
 @font-face {
@@ -134,6 +136,7 @@ body{
 }
 
 .about-minecraft{
+    scroll-margin-top: calc(var(--index) * 9);
     width: 80%;
     margin-left: 10%;
     font-size: calc(var(--index) * 0.8);
@@ -143,6 +146,7 @@ body{
 }
 
 .gallery{
+    scroll-margin-top: calc(var(--index) * 8);
     --gallery-margin: calc(var(--index) * 6);
     margin: var(--gallery-margin) 0 var(--gallery-margin) 2.5%;
     background-color: rgba(11, 151, 104, 0.3);
@@ -157,17 +161,67 @@ body{
     padding-top: calc(var(--index) * 1.75);
     padding-bottom: var(--index);
 }
+.gallery__card__caption{
+    position: relative;
+    height: 0;
+    color: white;
+    transition: 0.2s;
+    opacity: 0;
+    text-shadow:
+        0 0 1px #fff,
+        0 0 2px #fff,
+        0 0 5px #fff,
+        0 0 11px rgb(135, 216, 6),
+        0 0 20px rgb(135, 216, 6),
+        0 0 30px rgb(135, 216, 6),
+        0 0 55px rgb(135, 216, 6),
+        0 0 80px rgb(135, 216, 6);
+}
+.gallery__card__background {
+    position: absolute;
+    height: calc(var(--index) * 15);
+    width: calc(var(--index) * 15);
+    bottom: 0;
+    transition: 0.2s;
+    display: inline;
+    opacity: 0;
+    background: black;
+}
+.gallery__card:hover {
+    transform:  translateY(calc(var(--index) * 0.7));
+    box-shadow: 0px 7px 10px;
+    cursor: pointer;
+}
+.gallery__card:hover .gallery__card__caption {
+    transform: translateY(calc(var(--index) * -6));
+    opacity: 1;
+}
 
+.gallery__card:hover .gallery__card__description {
+    transform: translateY(calc(var(--index) * -12));
+    opacity: 1;
+}
+.gallery__card:hover .gallery__card__background {
+    opacity: 0.7;
+}
+
+.gallery__card__description {
+    position: relative;
+    height: 0;
+    color: white;
+    transition: 0.2s;
+    opacity: 0;
+}
 .gallery_conteiner{
     position: relative;
-    height: 340px;
+    height: calc(var(--index) * 17);
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 .gallery_button{
     position: relative;
-    width: 3%;
+    width: 5%;
     height: 80%;
     background-color: rgb(21, 173, 123, 0.6);
     border-radius: 15px;
@@ -178,19 +232,111 @@ body{
     background-color:rgba(4, 128, 86, 0.9);
     cursor: pointer;
 }
-.gallery_card_pic{
-    width: 280px;
-    height: 280px;
+.gallery__card__pic{
+    width: calc(var(--index) * 15);
+    height: calc(var(--index) * 15);
     object-fit: cover;
-    border-radius: 10%;
-    border: 2px solid black;
 }
-.gallery_card_pic:hover{
-    transform: scale(1.1);
-    cursor: pointer;
-}
-.gallery_cards{
+.gallery__cards{
     width: 90%;
     justify-content: space-evenly;
     display: flex;
+}
+.gallery__card {
+    overflow: hidden;
+    transition: 0.2s;
+    border-radius: calc(var(--index) * 2);
+    height: calc(var(--index) * 15);
+    width: calc(var(--index) * 15);
+    font-family: kamerik-3d;
+    font-size: calc(var(--index) * 0.75);
+    text-align: center;
+    border: 2px solid rgb(0, 0, 0);
+}
+.gallery_button img {
+    width: 50%;
+}
+.gallery_button_left img {
+    transform: rotateZ(180deg);
+}
+footer {
+    overflow: hidden;
+    z-index: 1;
+    display: grid;
+    position: relative;
+    height: calc(var(--index) * 15);
+    background: #00000000;
+}
+
+#bubbles {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: calc(var(--index) * 10);
+    margin-top: calc(var(--index) * 5);
+    background: var(--footer-background);
+}
+
+.bubble {
+    z-index: 0;
+    position: absolute;
+    left: var(--left);
+    background: var(--footer-background);
+    border-radius: 100%;
+    -webkit-animation: bubble-size var(--time, 4s) ease-in infinite var(--delay, 0s), bubble-move var(--time, 4s) ease-in infinite var(--delay, 0s);
+                animation: bubble-size var(--time, 4s) ease-in infinite var(--delay, 0s), bubble-move var(--time, 4s) ease-in infinite var(--delay, 0s);
+    transform: translate(-50%, 100%);
+}
+footer .content{
+    text-transform: none;
+    font-family: merriwheather-3d;
+    font-size: calc(var(--index) * 0.8);
+    letter-spacing: calc(var(--index) * -0.02);
+    z-index: 1;
+}
+
+footer .content p {
+    text-align: center;
+    margin-top: calc(var(--index) * 12);
+}
+
+@keyframes bubble-size {
+    0%, 75%{
+        width: var(--size, 4rem);
+        height: var(--size, 4rem);
+    }
+    100%{
+        width: var(--size, 0rem);
+        height: var(--size, 0rem);
+    }
+}
+
+@keyframes bubble-move {
+    0%{
+        bottom: calc(var(--index) * 8);
+    }
+    100%{
+        bottom: calc(var(--index) * 15);
+    }
+}
+
+@-webkit-keyframes bubble-size {
+    0%, 75%{
+        width: var(--size, 4rem);
+        height: var(--size, 4rem);
+    }
+    100%{
+        width: var(--size, 0rem);
+        height: var(--size, 0rem);
+    }
+}
+
+@-webkit-keyframes bubble-move {
+    0%{
+        bottom: calc(var(--index) * 8);
+    }
+    100%{
+        bottom: calc(var(--index) * 15);
+    }
 }
