@@ -27,8 +27,9 @@ let cards = []
 let cards_images = [
     new Image(
         "png\\2435495-middle.png",
-        "Корова тупорылая",
-        "Она реально тупая",
+        "Индийское богохульство",
+        "Не может корова эта быть святой, ибо по одному её виду сказать можно, что тупа она, да грязна",
+        "cow.html"
     ),
     new Image(
         "png\\png-clipart-minecraft-story-mode-youtube-bill-cipher-undertale-mine-craft-bill-cipher-fictional-character.png",
@@ -83,7 +84,7 @@ gallery_button_right.addEventListener("click", event => {
     if (card_index > cards_images.length - 1) {
         card_index = 0
     }
-    add_card(cards_images[(card_index + 2) % cards_images.length], "left")
+    add_card(cards_images[(card_index + 2) % cards_images.length], "right")
 })
 
 gallery_button_left.addEventListener("click", event => {

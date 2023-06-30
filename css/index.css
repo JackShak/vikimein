@@ -213,7 +213,11 @@ body{
     z-index: 2;
     top: calc(var(--index) * -16);
 }
-
+.gallery_cards {
+    width: 90%;
+    justify-content: space-evenly;
+    display: flex;
+}
 .gallery__card__description {
     position: relative;
     height: 0;
@@ -298,16 +302,32 @@ footer {
     transform: translate(-50%, 100%);
 }
 footer .content{
+    display: flex;
     text-transform: none;
     font-family: merriwheather-3d;
     font-size: calc(var(--index) * 0.8);
     letter-spacing: calc(var(--index) * -0.02);
     z-index: 1;
+    justify-content: space-around;
 }
 
 footer .content p {
+    display: block;
     text-align: center;
     margin-top: calc(var(--index) * 12);
+}
+
+footer .content a {
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    color: rgb(15, 72, 108);
+    margin-top: calc(var(--index) * 6);
+    transition: 0.3s;
+}
+
+footer .content a:hover {
+    transform: scale(1.2);
 }
 
 @keyframes bubble-size {
